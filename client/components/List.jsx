@@ -3,15 +3,27 @@ import { connect } from 'react-redux'
 import { fetchCities } from '../actions/index'
 
 const List = (props) => {
+  const [showTowns, setShowTowns] = useState(false)
+
   useEffect(() => {
     props.dispatch(fetchCities())
   }, [])
 
   return (
     <div className='list'>
-      <h2>this should really be a list</h2>
-      {props.cities?.map(city => {
-        return <div className='nav-button' key={city.internalid}><h3 className='nav-button__text'>{city.name}</h3></div>
+      <button className='nav-button'><h2 className='nav-button__text'>Home</h2></button>
+      <button className='nav-button'
+        onClick={() => setShowTowns(!showTowns)}><h2 className='nav-button__text'>Towns</h2></button>
+      {!showTowns && <button
+        className='nav-button'><h2 className='nav-button__text'>Favourites</h2></button>}
+      {showTowns && props.cities?.map(city => {
+        return <div
+          className='nav-button'
+          key={city.internalid}>
+          <h2 className='nav-button__text'>
+            {city.name}
+          </h2>
+        </div>
       })}
     </div>
   )

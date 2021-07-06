@@ -10,7 +10,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 100px;
+  height: 75px;
   background-color: hsl(240, 11%, 17%);
   display: flex;
   align-items: center;
@@ -21,8 +21,8 @@ body {
 .hamburger-button {
   margin-left: calc(150px - 50px);
   vertical-align: middle;
-  width: 90px;
-  height: 85px;
+  width: 65px;
+  height: 65px;
   background-image: url('./images/menu_icon_inverse.png');
   background-size: cover;
   background-color: hsla(0, 80%, 48%, 0);
@@ -54,7 +54,7 @@ body {
 .app {
   display: flex;
   position: fixed;
-  top: 100px;
+  top: 75px;
   bottom: 50px;
   left: 0;
   right: 0;
@@ -73,6 +73,7 @@ body {
   overflow: scroll;
   overflow-x: hidden;
   z-index: 6;
+  padding-top: 0px;
 }
 
 .display {
@@ -87,6 +88,7 @@ body {
 
 .nav-button {
   backdrop-filter: blur(4px);
+  border: none;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -99,5 +101,9 @@ body {
       // line-height: 2em;
       font-weight: 400;
       margin: 0px 0px 0px 0px;
+    }
+    &:active {
+      margin-top: 5px;
+      box-shadow: inset 3px 3px 5px 3px #00000055;
     }
 }

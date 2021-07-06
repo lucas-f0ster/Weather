@@ -1,3 +1,8 @@
 import request from 'superagent'
 
-const rootUrl = 'https://api.openweathermap.org/data/2.5/onecall'
+const rootUrl = '/api/v1'
+
+export const getWeather = (long, lat) => {
+  return request.get(`${rootUrl}/weather/${long}/${lat}`)
+    .then(res => res.body)
+}

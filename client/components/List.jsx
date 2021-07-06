@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchCities } from '../actions/index'
 
 const List = (props) => {
   const [showTowns, setShowTowns] = useState(false)
-
-  useEffect(() => {
-    props.dispatch(fetchCities())
-  }, [])
 
   return (
     <div className='list'>
@@ -18,7 +13,7 @@ const List = (props) => {
         className='nav-button'><h2 className='nav-button__text'>Favourites</h2></button>}
       {showTowns && props.cities?.map(city => {
         return <div
-          className='nav-button'
+          className='nav-button nav-button--city'
           key={city.internalid}>
           <h2 className='nav-button__text'>
             {city.name}

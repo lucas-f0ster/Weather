@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { fetchCities } from '../actions/index'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -7,6 +8,10 @@ import List from './List'
 import Display from './Display'
 
 function App (props) {
+  useEffect(() => {
+    props.dispatch(fetchCities())
+  }, [])
+
   return (
     <>
       <Header />

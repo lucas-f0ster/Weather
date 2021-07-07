@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+require('dotenv').config()
 
 const server = express()
 const cities = require('./routes/cities')

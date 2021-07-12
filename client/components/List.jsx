@@ -9,7 +9,7 @@ const List = (props) => {
   }
 
   return (
-    <div className='list'>
+    <div className={props.classname}>
       <button className='nav-button'><h2 className='nav-button__text'>Home</h2></button>
       <button className='nav-button'
         onClick={() => setShowTowns(!showTowns)}><h2 className='nav-button__text'>Towns</h2></button>
@@ -22,7 +22,6 @@ const List = (props) => {
           <h2 className='nav-button__text'>
             {city.name}
           </h2>
-          <img className='nav-button__favourite' src='images/goldStar.png'/>
         </div>
       })}
     </div>

@@ -36,13 +36,13 @@ const WeatherWidget = ({ weather, location }) => {
         {widgetWeather.current && <>
           {!widgetExpanded
             ? <>
-              <h2>{widgetLocation || 'YourLocation' }</h2>
+              <h2>{widgetLocation || 'Your Location' }</h2>
               <h3>{widgetWeather.current.temp}℃</h3>
               <img src={`http://openweathermap.org/img/wn/${widgetWeather.current.weather[0].icon}@2x.png`} />
               <h3>Currently {widgetWeather.current.weather[0].description} with {widgetWeather.current.humidity}% humidity</h3>
               <h3>Feels like: {widgetWeather.current.feels_like}℃ </h3>
             </>
-            : <DetailedWeather weather={widgetWeather} />}
+            : <DetailedWeather weather={widgetWeather} location={widgetLocation} />}
         </>}
       </div>
       {widgetExpanded && <div className='weather-widget weather-widget__placeholder'></div>}

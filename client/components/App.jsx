@@ -1,29 +1,32 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { fetchCities } from '../actions/index'
 
-import { fetchFruits } from '../actions'
+import Header from './Header'
+import Footer from './Footer'
+import List from './List'
+import Display from './Display'
 
 function App (props) {
   useEffect(() => {
-    props.dispatch(fetchFruits())
+    props.dispatch(fetchCities())
   }, [])
 
   return (
     <>
+      <Header />
       <div className='app'>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {props.fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
+        {props.nav && <List />}
+        <Display />
       </div>
+      <Footer />
     </>
   )
 }
 const mapStateToProps = (globalState) => {
   return {
-    fruits: globalState.fruits
+    fruits: globalState.fruits,
+    nav: globalState.nav
   }
 }
 

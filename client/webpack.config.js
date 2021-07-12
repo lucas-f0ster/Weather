@@ -23,6 +23,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'url-loader'
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {

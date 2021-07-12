@@ -18,7 +18,7 @@
     "build:server": "npm run knex -- migrate:latest",
     "lint": "eslint --ext .js,.jsx .",
     "webpack": "webpack --config ./client/webpack.config.js",
-    "knex": "knex --knexfile ./server/db/knexfile.js"
+    "knex": "knex --knexfile server/db/knexfile.js"
   },
   "babel": {
     "presets": [
@@ -38,8 +38,10 @@
     ]
   },
   "dependencies": {
+    "authenticare": "^0.4.9",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "knex": "^0.21.12",
+    "knex": "^0.95.6",
     "pg": "^8.5.1",
     "superagent": "^6.1.0"
   },
@@ -67,9 +69,10 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^5.0.2",
     "style-loader": "^2.0.0",
     "supertest": "6.0.1",
+    "url-loader": "^4.1.1",
     "webpack": "5.9.0",
     "webpack-cli": "4.2.0"
   }

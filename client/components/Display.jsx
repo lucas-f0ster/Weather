@@ -26,9 +26,10 @@ const Display = (props) => {
 
   return (
     <div className='display'>
-      {weather && <WeatherWidget weather={weather} />}
+      {weather && <WeatherWidget weather={weather} location={'current'} />}
+      {weather && <WeatherWidget weather={{}} location={2193732}/>}
       {/* {props.fave.map(e => {
-        return <WeatherWidget />
+        return <WeatherWidget location={e.id}/>
       })
       } */}
     </div>

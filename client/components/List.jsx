@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 const List = (props) => {
   const [showTowns, setShowTowns] = useState(false)
 
+  const addToFave = (id) => {
+    return null
+  }
+
   return (
     <div className='list'>
       <button className='nav-button'><h2 className='nav-button__text'>Home</h2></button>
@@ -18,6 +22,7 @@ const List = (props) => {
           <h2 className='nav-button__text'>
             {city.name}
           </h2>
+          <img className='nav-button__favourite' src='images/goldStar.png'/>
         </div>
       })}
     </div>

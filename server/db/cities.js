@@ -6,6 +6,11 @@ const getCities = (db = connection) => {
   return db('cities').select().orderBy('name', 'asc')
 }
 
+const getCity = (id, db = connection) => {
+  return db('cities').select().where('internalid', id).first()
+}
+
 module.exports = {
-  getCities
+  getCities,
+  getCity
 }

@@ -15,7 +15,6 @@ body {
   background-color: hsl(240, 11%, 17%, 0);
   display: flex;
   align-items: center;
-  // box-shadow: 3px 3px 5px 3px #00000055;
   z-index: 5;
 }
 
@@ -29,16 +28,14 @@ body {
   background-color: hsla(0, 80%, 48%, 0);
   text-shadow: 1.5px 1.5px 3px 3px #00000055;
   border-radius: 25%;
-  // border: 1px hsla(0, 0%, 0%, 0.4) solid;
   border: none;
   padding: none;
   transition: 0.03s;
-    &:active {
-      margin-top: 5px;
-      // margin-left: calc(4% + 1px);
-      margin-left: calc(151px - 50px);
-      box-shadow: inset 3px 3px 5px 3px #00000055;
-    }
+  &:active {
+    margin-top: 5px;
+    margin-left: calc(151px - 50px);
+    box-shadow: inset 3px 3px 5px 3px #00000055;
+  }
 }
 
 .footer {
@@ -81,13 +78,15 @@ body {
     overflow-x: hidden;
     z-index: 6;
     padding-top: 0px;
-    transition: 0.4s;
+    transition: height 0.4s;
   }
   &-closed {
     height: 0px;
-    width: 0px;
-    visibility: hidden;
-    transition: height 0.4s hidden 0.4s;
+    width: 10%;
+    min-width: 300px;
+    opacity: 0;
+    position: fixed;
+    transition: height 0.4s, opacity 0.1s 0.1s;
   }
 }
 
@@ -102,7 +101,6 @@ body {
 
 .display {
   background-color: hsla(236, 39%, 32%, 0);
-  // background-image: url('./images/ddbfa9b7156923420947dc1ca4ef94ae.png');
   background-size: cover;
   display: flex;
   align-content: space-between;
@@ -116,6 +114,7 @@ body {
 }
 
 .nav-button {
+  opacity: inherit;
   backdrop-filter: blur(4px);
   border: none;
   text-align: center;
@@ -126,30 +125,32 @@ body {
   height: 3em;
   margin: 10px 0 10px 0;
   background-color: hsla(235, 47%, 15%, 0.623);
-    &__text {
-      // line-height: 2em;
-      font-weight: 400;
-      margin: 0px 0px 0px 0px;
-      color: white;
-    }
-    &:active {
-      padding-top: 5px;
-      height: calc(3em - 5px);
-      box-shadow: inset 3px 3px 5px 3px #00000055;
-    }
-    &--city {
-      width: 90%;
-      margin: 0 auto;
-      margin-top: 2px;
-      margin-bottom: 2px;
-      display:flex;
-      justify-content: center;
-    }
-    &__favourite {
-      height: 2em;
-      justify-self: center;
-      display:inline
-    }
+  &__text {
+    opacity: inherit;
+    font-weight: 400;
+    margin: 0px 0px 0px 0px;
+    color: white;
+  }
+  &:active {
+    padding-top: 5px;
+    height: calc(3em - 5px);
+    box-shadow: inset 3px 3px 5px 3px #00000055;
+  }
+  &--city {
+    opacity: inherit;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display:flex;
+    justify-content: center;
+  }
+  &__favourite {
+    opacity: inherit;
+    height: 2em;
+    justify-self: center;
+    display:inline
+  }
 }
 
 
@@ -169,36 +170,79 @@ body {
   border: 5px hsla(237, 44%, 8%, 0.781) solid;
   &:hover {
     margin-top: 15px;
-    // margin-left: 15px;
     box-shadow: 3px 3px 8px 6px #00000055;
   }
   &__large {
-      backdrop-filter: blur(18px);
-      position: absolute;
-      width: 80vw;
-      height: 80vh;
-      top: 0;
-      left: 8vw;
-      bottom: 0;
-      right: 0;
+    backdrop-filter: blur(18px);
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    top: 0;
+    left: 8vw;
+    bottom: 0;
+    right: 0;
+    &:hover {
+      box-shadow: 3px 3px 5px 3px #00000055;
+      margin: 20px;
     }
-    &__placeholder {
-      opacity: 0;
-    }
+  }
+  &__placeholder {
+    opacity: 0;
+  }
 }
 
-.detailed-daily {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: space-between;
-  text-align: center;
-  max-width: 90%;
-  height: 25%;
-  background-color: white;
+.detailed{
+  &__false {
+    visibility: hidden;
+  }
+  &__true {
+    visibility: visible;
+  }
+  &-daily {
+    transition: 0.5s, visibility 0s -0.1s;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    text-align: center;
+    max-width: 90%;
+    height: 400px;
     &-info {
+      z-index: 10;
       background-color: red;
-      max-width: 15%;
+      border-radius: 20px;
+      width: 15%;
+      height: 400px;
+      border: 5px hsla(237, 44%, 8%, 0.781) solid;
+      background-color: hsla(238, 43%, 15%, 0.781);
+      padding: 10px;
     }
+  }
+}
+
+.alert {
+  border: 5px hsla(0, 85%, 36%, 0.781) solid;
+  &__container {
+    background-color: hsla(0, 85%, 36%, 0.665);
+    margin-top: -15px;
+  }
+}
+
+.temp {
+  &__high {
+    color: hsl(0, 63%, 49%)
+  }
+  &__low {
+    color: hsl(201, 91%, 43%);
+  }
+}
+
+details {
+  &__hidden {
+    visibility: hidden;
+  }
+  &__shown {
+    visibility: visible;
+  }
 }

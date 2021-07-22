@@ -14,7 +14,7 @@ router.get('/:long/:lat', (req, res) => {
 
 router.get('/:id', (req, res) => {
   return request(`${baseUrlCurrent}${req.params.id}&appid=${apiKey}`)
-    .then(resp => res.body)
+    .then(res => res.body)
     .catch(err => console.log(err))
 })
 

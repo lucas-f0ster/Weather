@@ -33,7 +33,7 @@ const WeatherWidget = ({ weather, location }) => {
   return (
     <>
       <div onClick={() => toggleWidget()}
-        className={`${!widgetWeather.alerts ? 'alert' : ''} 
+        className={`${widgetWeather.alerts ? 'alert' : ''} 
         ${widgetExpanded ? 'weather-widget weather-widget__large' : 'weather-widget'}`}>
         {widgetWeather.current && <>
           {!widgetExpanded && <>
@@ -42,9 +42,9 @@ const WeatherWidget = ({ weather, location }) => {
             <img src={`http://openweathermap.org/img/wn/${widgetWeather.current.weather[0].icon}@2x.png`} />
             <h3>Currently {widgetWeather.current.weather[0].description} with {widgetWeather.current.humidity}% humidity</h3>
             <h3>Feels like: {widgetWeather.current.feels_like}&deg;C </h3>
-            {!widgetWeather.alerts && <div className='alert__container'>
+            {widgetWeather.alerts && <div className='alert__container'>
               {/* <h3>{widgetWeather.alerts.event}</h3> */}
-              <h3>Wind warning</h3>
+              <h3>{widgetWeather.alerts.event}</h3>
             </div>}
           </>}
           <DetailedWeather

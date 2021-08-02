@@ -16,7 +16,7 @@ function App (props) {
     <>
       <Header />
       <div className='app'>
-        {props.nav && <List />}
+        {<List classname={props.nav ? 'list-open' : 'list-closed'} />}
         <Display />
       </div>
       <Footer />
